@@ -3303,6 +3303,7 @@ footer {
     @media (min-width: 767px) {
       .slider .select2-container {
         min-width: 452px;
+        max-width: 452px;
         margin: 30px auto; } }
   .slider .select2-container--default .select2-selection--single {
     background-color: transparent;

@@ -88,6 +88,13 @@ $(document).ready(function() {
 		}
 	});
 
+	$(".form-btn").on("click", function(){
+		$(".results-wrap").removeClass('show').addClass('hide');
+		$(".thank-you").removeClass('hide').addClass('show');
+		$("footer").hide();
+		createSliderElements('tokyo');
+	});
+
 	function formatCitySlider (d) {
 		if(d.disabled) return; 
     	var info = '';
@@ -107,7 +114,7 @@ $(document).ready(function() {
 	    templateSelection: formatCitySlider
 	});
 
-	createSliderElements('tokyo');
+	
 
 	$( ".js-slider-control" ).on('change', function(e) {
 		var city = e.target.value; 
