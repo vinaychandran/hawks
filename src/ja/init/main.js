@@ -115,6 +115,35 @@ $(document).ready(function() {
 	    templateSelection: formatCitySlider
 	});
 
+
+	var popup = document.getElementById('popup');
+	var btn = document.getElementById('popup-button');
+	var closeButton = document.getElementsByClassName('close')[0];
+	if (btn != null ){
+		btn.onclick = function() {
+			popup.style.display = 'block';
+			$('body, html').addClass('not-scrollable');
+		};
+	}
+	if (closeButton != null ){	
+		closeButton.onclick = function() {
+			popup.style.display = 'none';
+			$('body, html').removeClass('not-scrollable');
+		};
+	}
+	window.onclick = function(event) {
+		if (event.target == popup) {
+			popup.style.display = 'none';
+			$('body, html').removeClass('not-scrollable');
+		}
+	};
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) {
+			popup.style.display = 'none';
+			$('body, html').removeClass('not-scrollable');
+		}
+	});
+
 	
 
 	$( ".js-slider-control" ).on('change', function(e) {
