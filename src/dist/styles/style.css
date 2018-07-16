@@ -190,7 +190,7 @@ body {
   color: #fff;
   transition: .5s;
   position: relative;
-  background: url("../images/bg.jpg") no-repeat;
+  background: url("../images/bg.jpg") #efc809 no-repeat;
   background-size: cover;
   font-weight: 500; }
 
