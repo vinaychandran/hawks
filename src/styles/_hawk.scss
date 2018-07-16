@@ -645,7 +645,7 @@ footer{
 	.slick-slider{
 		margin: 0;
 		padding:0;
-		@media (max-width: 767px) {
+		@media (min-width: 767px) {
 			margin: 49px 0 0; 
 		}
 	}
@@ -707,9 +707,16 @@ footer{
 	    		text-decoration: underline;
 	    	}
 	    }
+	    img{
+	    	width: 100%;
+	    	height: auto;
+	    }
 	}
 	.slick-list {
 	    padding: 0 0 10px;
+	    @media (max-width: 767px) {
+	    	margin: 0 -15px;
+	    }	    
 	}
 	.slick-track{
 		margin:0 auto;
@@ -788,8 +795,11 @@ footer{
 	.slick-dots{
 		list-style: none;
 		font-size:0;
-		margin-top:40px;
+		margin-top:10px;
 		padding:0;
+		@media (min-width: 767px) {
+			margin-top:40px;
+		}
 		li{
 			display: inline-block;
 			margin:0 5px;
