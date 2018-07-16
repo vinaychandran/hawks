@@ -2,7 +2,7 @@ header{
 	padding: 7px 40px;
 	background: #fff;
 	overflow: hidden;
-	@media (min-width: 767px) {
+	@media (min-width: 940px) {
 		padding: 15px 0;
 	}
 	img{
@@ -95,7 +95,7 @@ header{
 .question-box-white{
 	background:  url("../images/content-mobile-bg.png") no-repeat 0 5px;
 	border-radius: 15px;
-	
+	background-size: 100%; 
 	min-height: 277px;  
 	margin: 15px 10px 0; 
 	background-size: 100%; 
@@ -105,6 +105,7 @@ header{
 		margin: 45px 0 0;
 		min-height: 370px;
 		width: 100%;
+		background-size: 100%;  
 	}
 	.hide{
 	 	display: none;
@@ -142,6 +143,7 @@ header{
   		 align-items:center;
   		 display: flex;
   		 justify-content:center;
+  		 font-weight: 700;
   		 @media (min-width: 767px) {
   		 	width: 72px;
 			height: 72px;
@@ -321,6 +323,7 @@ footer{
 		letter-spacing: normal;
 		color: #090204;
 		font-weight: bold;
+		margin-bottom: 10px;
 		@media (min-width: 767px) {
 			font-size: 28px; 
 
@@ -335,7 +338,7 @@ footer{
 		margin: 0;
 		@media (min-width: 767px) {
 			width: 33.33%;
-			padding-right: 45px;
+			padding-right: 35px; 
 			float: left;
 		}
 		h3{
@@ -354,7 +357,8 @@ footer{
 		}
 		li{
 			margin-bottom: 14px;	
-			overflow: hidden;	 	
+			overflow: hidden;	
+			position: relative;
 		}
 		.chart-label{
 			font-size: 14px;
@@ -374,16 +378,16 @@ footer{
 			}
 		}
 		.chart{
-			position: relative;
-			width: 190px;
-			margin-left: 15px;
-			float: left; 
+			position: absolute;
 			background: #e7e7e9;
 			overflow: hidden;
 			height: 20px;	
+			right: 0;  
+			left: 100px;
 			@media (min-width: 767px) {
-				width: 160px;
+				width: auto;
 				height: 30px;	
+				left: 70px
 			}
 			span{
 				position: absolute;
@@ -506,6 +510,7 @@ footer{
 			border: 2px solid transparent;
 			background-color: #ffd25d;
     	}
+    	
 	}
 } 
 
@@ -523,24 +528,25 @@ footer{
     	margin: 0;
     	font-size: 14px;
     }
-    @media (min-width: 767px) {
+    @media (min-width: 1023px) {
     	float: right;
 		width: 395px;
 		padding: 30px 0;
 		margin-top: 0;
     }
     .result-jersey{
-    	@media (max-width: 767px) {
+    	@media (max-width: 1023px) {
     		max-width: 94px;
     		height: auto;
     	}
     }
     .result-ms-logo{
-    	@media (max-width: 767px) {
+    	@media (max-width: 1023px) {
     		max-width: 77px;
     		height: auto; 
     	}
     }
+   
 }
 
 .thank-you{ 
@@ -567,6 +573,29 @@ footer{
 	display: block;
 }
 
+
+.campaign-button{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background:#fff;
+	padding: 10px 0;
+	z-index: 9;
+	text-align: center;
+	box-shadow: 0px -2px 7px 0px rgba(0,0,0,0.1);
+	@media (min-width: 767px) {
+		display: none !important;
+	}
+	a{
+		border-radius: 25px;
+  		background-color: #ffd25d;
+  		color: #090204;
+  		padding: 10px 30px;
+  		font-weight: 700;
+  		display: inline-block;
+	}
+}
 
 
 

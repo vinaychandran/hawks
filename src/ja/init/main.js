@@ -1,3 +1,27 @@
+$(window).on('scroll',function() {
+    if(isScrolledIntoView($('#mainForm'))){
+      $(".campaign-button").removeClass('fadeInUp').addClass('fadeOutDown');
+    }
+    else{
+     $(".campaign-button").removeClass('fadeOutDown').addClass('fadeInUp');
+    }
+});
+
+function isScrolledIntoView(elem){
+    var $elem = $(elem);
+    var $window = $(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+
+
 $(document).ready(function() {
 	$('#name').blur(function() {
 		if ($('#name').val() === '') {
@@ -44,7 +68,10 @@ $(document).ready(function() {
 		$(".dot4").addClass('active');
 		$(".result-gallery img").addClass('zoomIn');
 		$(".chart-horiz span").addClass('animate');
+		$(".campaign-button").addClass('fadeInUp');
 	});
+
+	
 
 	$('#email').blur(function() {
 		if ($('#email').val() === '') {
@@ -92,9 +119,10 @@ $(document).ready(function() {
 		$(".results-wrap").removeClass('show').addClass('hide');
 		$(".thank-you").removeClass('hide').addClass('show');
 		$("footer").hide();
+		createSliderElements('fukuoka');
 	});
 
-	createSliderElements('tokyo');
+	
 
 	function formatCitySlider (d) {
 		if(d.disabled) return; 
@@ -152,11 +180,19 @@ $(document).ready(function() {
 		createSliderElements(city);
 	});
 
+	$( ".campaign-button a" ).on('click', function(e) {
+	    $('html,body').animate({
+	    	scrollTop: $("#mainForm").offset().top},
+	    'slow');
+	});
+
+	
+
 	function createSliderElements(city) {
 		var item = '';
 		for (var i = 0; i < cityHotelMap[city].hotels.length; i++) {
 			var hotelData =  cityHotelMap[city].hotels[i];
-			item += '<div><img data-lazy="../dist/images/' + hotelData.img + '" /> <h6>'+ hotelData.name +'</h6> <p>'+ hotelData.address +'</p> <button class="js-slider-choose" data-city="' + city + '" data-hotel="' + hotelData.name + '" data-property="' + hotelData.id + '">' + miscellaneous.sliderSelectButton + '</button></div>';
+			item += '<div><img data-lazy="../dist/images/' + hotelData.img + '" /> <h6>'+ hotelData.name +'</h6> <p>'+ hotelData.address +'</p> <button class="js-slider-choose" data-city="' + city + '" data-hotel="' + hotelData.name + '" data-url="' + hotelData.URL + '">' + miscellaneous.sliderSelectButton + '</button></div>';
 		};
 		
 		$('.js-slider').empty().append(item).slick({
@@ -191,6 +227,13 @@ $(document).ready(function() {
 		}, 100);
 	};
 
+	
+	$('.thank-you').on('click', '.js-slider-choose', function () {
+		url = $(this).attr("data-url")
+		window.open(url);
+	});
+
 
 });  
+
 

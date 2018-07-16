@@ -179,8 +179,7 @@ th {
 
 html, body {
   width: 100%;
-  height: 100%;
-  overflow-x: hidden; }
+  height: 100%; }
 
 body {
   margin: 0;
@@ -2785,7 +2784,7 @@ header {
   padding: 7px 40px;
   background: #fff;
   overflow: hidden; }
-  @media (min-width: 767px) {
+  @media (min-width: 940px) {
     header {
       padding: 15px 0; } }
   header img {
@@ -2863,6 +2862,7 @@ header {
 .question-box-white {
   background: url("../images/content-mobile-bg.png") no-repeat 0 5px;
   border-radius: 15px;
+  background-size: 100%;
   min-height: 277px;
   margin: 15px 10px 0;
   background-size: 100%;
@@ -2872,7 +2872,8 @@ header {
       background: url("../images/content-bg.png") no-repeat 0 10px;
       margin: 45px 0 0;
       min-height: 370px;
-      width: 100%; } }
+      width: 100%;
+      background-size: 100%; } }
   .question-box-white .hide {
     display: none; }
   .question-box-white h3 {
@@ -2905,7 +2906,8 @@ header {
     border-radius: 50%;
     align-items: center;
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    font-weight: 700; }
     @media (min-width: 767px) {
       .question-box-white .versus {
         width: 72px;
@@ -3056,7 +3058,8 @@ footer {
   line-height: 1.5;
   letter-spacing: normal;
   color: #090204;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 10px; }
   @media (min-width: 767px) {
     .results-wrap h3 {
       font-size: 28px; } }
@@ -3070,7 +3073,7 @@ footer {
   @media (min-width: 767px) {
     .results-wrap .chart-horiz {
       width: 33.33%;
-      padding-right: 45px;
+      padding-right: 35px;
       float: left; } }
   .results-wrap .chart-horiz h3 {
     margin-bottom: 10px; }
@@ -3086,7 +3089,8 @@ footer {
     font-weight: bold; }
   .results-wrap .chart-horiz li {
     margin-bottom: 14px;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
   .results-wrap .chart-horiz .chart-label {
     font-size: 14px;
     color: #000000;
@@ -3103,17 +3107,17 @@ footer {
           display: block;
           padding-left: 0; } }
   .results-wrap .chart-horiz .chart {
-    position: relative;
-    width: 190px;
-    margin-left: 15px;
-    float: left;
+    position: absolute;
     background: #e7e7e9;
     overflow: hidden;
-    height: 20px; }
+    height: 20px;
+    right: 0;
+    left: 100px; }
     @media (min-width: 767px) {
       .results-wrap .chart-horiz .chart {
-        width: 160px;
-        height: 30px; } }
+        width: auto;
+        height: 30px;
+        left: 70px; } }
     .results-wrap .chart-horiz .chart span {
       position: absolute;
       left: 0;
@@ -3228,17 +3232,17 @@ footer {
   .result-gallery p {
     margin: 0;
     font-size: 14px; }
-  @media (min-width: 767px) {
+  @media (min-width: 1023px) {
     .result-gallery {
       float: right;
       width: 395px;
       padding: 30px 0;
       margin-top: 0; } }
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     .result-gallery .result-jersey {
       max-width: 94px;
       height: auto; } }
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     .result-gallery .result-ms-logo {
       max-width: 77px;
       height: auto; } }
@@ -3261,6 +3265,27 @@ footer {
 
 .show {
   display: block; }
+
+.campaign-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 10px 0;
+  z-index: 9;
+  text-align: center;
+  box-shadow: 0px -2px 7px 0px rgba(0, 0, 0, 0.1); }
+  @media (min-width: 767px) {
+    .campaign-button {
+      display: none !important; } }
+  .campaign-button a {
+    border-radius: 25px;
+    background-color: #ffd25d;
+    color: #090204;
+    padding: 10px 30px;
+    font-weight: 700;
+    display: inline-block; }
 
 .slider {
   position: relative;
