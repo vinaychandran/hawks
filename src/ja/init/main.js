@@ -92,8 +92,9 @@ $(document).ready(function() {
 		$(".results-wrap").removeClass('show').addClass('hide');
 		$(".thank-you").removeClass('hide').addClass('show');
 		$("footer").hide();
-		createSliderElements('tokyo');
 	});
+
+	createSliderElements('tokyo');
 
 	function formatCitySlider (d) {
 		if(d.disabled) return; 

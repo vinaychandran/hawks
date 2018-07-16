@@ -3271,7 +3271,7 @@ footer {
   margin: 0 15px; }
   @media (min-width: 767px) {
     .slider {
-      padding: 40px 100px 60px;
+      padding: 40px 100px 35px;
       border-radius: 20px;
       margin: 0; } }
   .slider h3 {
@@ -3288,6 +3288,7 @@ footer {
     border-radius: 5px;
     padding: 12px 20px 19px;
     min-width: 305px;
+    max-width: 305px;
     -webkit-appearance: none;
     -moz-appearance: none;
     text-indent: 1px;
@@ -3464,21 +3465,22 @@ footer {
     padding: 0; }
     @media (min-width: 767px) {
       .slider_container .slick-dots {
-        margin-top: 40px; } }
+        margin-top: 15px; } }
     .slider_container .slick-dots li {
       display: inline-block;
       margin: 0 5px; }
       .slider_container .slick-dots li.slick-active button {
-        opacity: 1; }
+        background: #000; }
+      .slider_container .slick-dots li:only-child {
+        display: none; }
       .slider_container .slick-dots li button {
-        background: #000;
+        background: #e7e7e9;
         border: none;
-        border-radius: 100px;
-        height: 8px;
-        width: 8px;
+        border-radius: 50%;
+        height: 12px;
+        width: 12px;
         display: block;
-        padding: 0;
-        opacity: 0.5; }
+        padding: 0; }
         .slider_container .slick-dots li button:focus {
           outline: none; }
 

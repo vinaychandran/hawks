@@ -83,6 +83,12 @@ $(document).ready(function() {
 		}
 	});
 
+	$(".form-btn").on("click", function(){
+		$(".results-wrap").removeClass('show').addClass('hide');
+		$(".thank-you").removeClass('hide').addClass('show');
+		$("footer").hide();
+	});
+
 	function formatCitySlider (d) {
 		if(d.disabled) return; 
     	var info = '';
