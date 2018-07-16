@@ -34,8 +34,9 @@ header{
 		text-align: center;
 		color: #000000;
 	  	text-shadow: 0 4px 5px rgba(17, 17, 63, 0.08);
-	  	-webkit-text-stroke: 1px #ffffff;	  	
 	  	margin: 15px 0 10px;
+	  	font-family: $go-bold;
+	  	font-family: $mi-semibold;
 	  	@media (min-width: 767px) {
 	  		font-size: 50px;
 	  		margin: 35px 0;
@@ -49,7 +50,6 @@ header{
 		}
 	}
 	p{
-	  font-family: HiraginoUDSansRStd-W6;
 	  font-size: 14px;
 	  font-weight: normal;
 	  font-style: normal;
@@ -294,8 +294,8 @@ footer{
 		text-align: center;
 		color: #000000;
 		text-shadow: 0 4px 5px rgba(17, 17, 63, 0.08);
-		-webkit-text-stroke: 1px #ffffff;
 		margin: 15px 0 10px;
+		font-family:$mi-semibold;
 		@media (min-width: 767px) {
 			font-size: 50px;
 			margin: 35px 0 30px;
@@ -310,7 +310,7 @@ footer{
 		overflow: hidden;
 		margin: 0 15px;
 		@media (min-width: 767px) {
-			padding: 40px 40px 40px 65px;
+			padding: 40px;
 			border-radius: 20px;
 		}
 	}
@@ -339,13 +339,18 @@ footer{
 			float: left;
 		}
 		h3{
-			 font-size: 16px;
-			font-weight: normal;
+			margin-bottom: 10px;
+			@media (min-width: 767px) {
+				margin-bottom: 30px;
+			}
+		}
+		h4{
+			 font-size: 14px;
 			line-height: 1.5;
 			letter-spacing: normal;
 			color: #090204;
 			margin-bottom: 10px;
-			text-align: center;
+			font-weight: bold;
 		}
 		li{
 			margin-bottom: 14px;	
@@ -545,8 +550,8 @@ footer{
 		text-align: center;
 		color: #000000;
 		text-shadow: 0 4px 5px rgba(17, 17, 63, 0.08);
-		-webkit-text-stroke: 1px #ffffff;
 		margin: 15px 0 10px; 
+		font-family: $mi-semibold;
 		@media (min-width: 767px) {
 			font-size: 50px;
 			margin: 35px 0 30px; 
