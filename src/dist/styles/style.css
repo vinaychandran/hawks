@@ -2784,15 +2784,23 @@ ul {
   animation-name: slideOutUp; }
 
 header {
-  padding: 7px 40px;
-  background: #fff;
-  overflow: hidden; }
+  padding: 0 15px;
+  background: #fff; }
+  header .container {
+    position: relative;
+    height: 40px; }
   @media (min-width: 940px) {
     header {
-      padding: 15px 0; } }
+      padding: 0; } }
   header img {
     display: block;
-    float: left; }
+    position: absolute;
+    top: -3px;
+    max-width: 140px;
+    height: auto; }
+    @media (min-width: 940px) {
+      header img {
+        max-width: 170px; } }
   header span {
     display: block;
     float: left;
@@ -2802,6 +2810,12 @@ header {
     margin: 0 20px 0 18px; }
   header .mystays-logo {
     margin-top: 8px; }
+
+.questions, .results-wrap, .thank-you {
+  padding-top: 40px; }
+  @media (min-width: 767px) {
+    .questions, .results-wrap, .thank-you {
+      padding-top: 30px; } }
 
 .question-top-content {
   text-align: center; }
@@ -2917,6 +2931,17 @@ header {
         height: 72px;
         font-size: 24px; } }
 
+.softbank-trademark {
+  position: absolute;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #090204;
+  white-space: nowrap; }
+
 .question .options-wrap {
   display: flex;
   padding: 0 20px;
@@ -2927,23 +2952,43 @@ header {
       padding: 0 50px;
       justify-content: evenly; } }
 
+.question .img-wrap {
+  position: relative;
+  display: inline-block; }
+
 .question.question1 .options-wrap {
   margin-top: 20px; }
   @media (min-width: 767px) {
     .question.question1 .options-wrap {
       margin-top: -50px; } }
-  .question.question1 .options-wrap .option1 img {
-    width: 122px;
-    height: auto; }
-    @media (min-width: 767px) {
-      .question.question1 .options-wrap .option1 img {
-        width: auto; } }
+  .question.question1 .options-wrap .option1 {
+    position: relative; }
+    .question.question1 .options-wrap .option1 img {
+      width: 122px;
+      height: auto; }
+      @media (min-width: 767px) {
+        .question.question1 .options-wrap .option1 img {
+          width: auto; } }
+    .question.question1 .options-wrap .option1 .softbank-trademark {
+      bottom: -10px;
+      left: 18px; }
+      @media (min-width: 767px) {
+        .question.question1 .options-wrap .option1 .softbank-trademark {
+          bottom: 0;
+          left: 70px; } }
   .question.question1 .options-wrap .option2 img {
     width: 125px;
     height: auto; }
     @media (min-width: 767px) {
       .question.question1 .options-wrap .option2 img {
         width: auto; } }
+  .question.question1 .options-wrap .option2 .softbank-trademark {
+    bottom: -10px;
+    left: 15px; }
+    @media (min-width: 767px) {
+      .question.question1 .options-wrap .option2 .softbank-trademark {
+        bottom: 0;
+        left: 47px; } }
 
 .question.question2 .options-wrap {
   margin-top: 15px;
@@ -2976,6 +3021,13 @@ header {
       width: auto;
       margin: 10px auto 0; } }
 
+.question.question2 .softbank-trademark {
+  bottom: 1px;
+  left: 100%; }
+  @media (min-width: 767px) {
+    .question.question2 .softbank-trademark {
+      bottom: 30px; } }
+
 .question.question3 .options-wrap {
   margin-top: 15px;
   justify-content: space-evenly; }
@@ -2994,6 +3046,13 @@ header {
   @media (min-width: 767px) {
     .question.question3 img {
       width: auto; } }
+
+.question.question3 .softbank-trademark {
+  bottom: 1px;
+  left: 110%; }
+  @media (min-width: 767px) {
+    .question.question3 .softbank-trademark {
+      bottom: 40px; } }
 
 footer {
   text-align: center;

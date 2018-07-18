@@ -1,3 +1,27 @@
+$(window).on('scroll',function() {
+    if(isScrolledIntoView($('#mainForm'))){
+      $(".campaign-button").removeClass('fadeInUp').addClass('fadeOutDown');
+    }
+    else{
+     $(".campaign-button").removeClass('fadeOutDown').addClass('fadeInUp');
+    }
+});
+
+function isScrolledIntoView(elem){
+    var $elem = $(elem);
+    var $window = $(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+
+
 $(document).ready(function() {
 	$('#name').blur(function() {
 		if ($('#name').val() === '') {
@@ -25,12 +49,16 @@ $(document).ready(function() {
 	$(".question1 .btn").on("click", function(){
 		$(".question1").addClass('hide');
 		$(".question2").removeClass('hide').addClass('show');
+		$(".question2 h3").addClass('fadeInUp');
+		$(".question2 img").addClass('zoomInDown');
 		$(".dot2").addClass('active');
 	});
 
 	$(".question2 .btn").on("click", function(){
 		$(".question2").removeClass('show').addClass('hide');
 		$(".question3").removeClass('hide').addClass('show');
+		$(".question3 h3").addClass('fadeInUp');
+		$(".question3 img").addClass('zoomInDown');
 		$(".dot3").addClass('active');
 	});
 
@@ -38,8 +66,12 @@ $(document).ready(function() {
 		$(".questions").removeClass('show').addClass('hide');
 		$(".results-wrap").removeClass('hide').addClass('show');
 		$(".dot4").addClass('active');
-		$(".chart-horiz span").addClass('animate')
+		$(".result-gallery img").addClass('zoomIn');
+		$(".chart-horiz span").addClass('animate');
+		$(".campaign-button").addClass('fadeInUp');
 	});
+
+	
 
 	$('#email').blur(function() {
 		if ($('#email').val() === '') {
@@ -87,7 +119,10 @@ $(document).ready(function() {
 		$(".results-wrap").removeClass('show').addClass('hide');
 		$(".thank-you").removeClass('hide').addClass('show');
 		$("footer").hide();
+		createSliderElements('fukuoka');
 	});
+
+	
 
 	function formatCitySlider (d) {
 		if(d.disabled) return; 
@@ -108,7 +143,36 @@ $(document).ready(function() {
 	    templateSelection: formatCitySlider
 	});
 
-	createSliderElements('tokyo');
+
+	var popup = document.getElementById('popup');
+	var btn = document.getElementById('popup-button');
+	var closeButton = document.getElementsByClassName('close')[0];
+	if (btn != null ){
+		btn.onclick = function() {
+			popup.style.display = 'block';
+			$('body, html').addClass('not-scrollable');
+		};
+	}
+	if (closeButton != null ){	
+		closeButton.onclick = function() {
+			popup.style.display = 'none';
+			$('body, html').removeClass('not-scrollable');
+		};
+	}
+	window.onclick = function(event) {
+		if (event.target == popup) {
+			popup.style.display = 'none';
+			$('body, html').removeClass('not-scrollable');
+		}
+	};
+	$(document).keyup(function(e) {
+		if (e.keyCode == 27) {
+			popup.style.display = 'none';
+			$('body, html').removeClass('not-scrollable');
+		}
+	});
+
+	
 
 	$( ".js-slider-control" ).on('change', function(e) {
 		var city = e.target.value; 
@@ -116,11 +180,19 @@ $(document).ready(function() {
 		createSliderElements(city);
 	});
 
+	$( ".campaign-button a" ).on('click', function(e) {
+	    $('html,body').animate({
+	    	scrollTop: $("#mainForm").offset().top},
+	    'slow');
+	});
+
+	
+
 	function createSliderElements(city) {
 		var item = '';
 		for (var i = 0; i < cityHotelMap[city].hotels.length; i++) {
 			var hotelData =  cityHotelMap[city].hotels[i];
-			item += '<div><img data-lazy="../dist/images/' + hotelData.img + '" /> <h6>'+ hotelData.name +'</h6> <p>'+ hotelData.address +'</p> <button class="js-slider-choose" data-city="' + city + '" data-hotel="' + hotelData.name + '" data-property="' + hotelData.id + '">' + miscellaneous.sliderSelectButton + '</button></div>';
+			item += '<div><img data-lazy="../dist/images/' + hotelData.img + '" /> <h6>'+ hotelData.name +'</h6> <p>'+ hotelData.address +'</p> <button class="js-slider-choose" data-city="' + city + '" data-hotel="' + hotelData.name + '" data-url="' + hotelData.URL + '">' + miscellaneous.sliderSelectButton + '</button></div>';
 		};
 		
 		$('.js-slider').empty().append(item).slick({
@@ -143,13 +215,7 @@ $(document).ready(function() {
 		        slidesToShow: 1,
 		        slidesToScroll: 1,
 		        centerMode: true,
-		        dotsClass: 'custom_paging',
-			    customPaging: function (slider, i) {
-			        //console.log(slider);
-			        var slideNumber   = (i + 1),
-			            totalSlides = slider.slideCount;
-			        return '<a class="custom-dot"><span class="string">' + slideNumber + '/' + totalSlides + '</span></a>';
-			    }
+		        arrows: false			    
 		      }
 		    }
 		  ]
@@ -161,6 +227,13 @@ $(document).ready(function() {
 		}, 100);
 	};
 
+	
+	$('.thank-you').on('click', '.js-slider-choose', function () {
+		url = $(this).attr("data-url")
+		window.open(url);
+	});
+
 
 });  
+
 

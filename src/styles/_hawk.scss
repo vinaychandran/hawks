@@ -1,13 +1,24 @@
 header{
-	padding: 7px 40px;
+	padding: 0 15px;
 	background: #fff;
-	overflow: hidden;
+	
+	// overflow: hidden;
+	.container{
+		position: relative;
+		height: 40px;
+	}
 	@media (min-width: 940px) {
-		padding: 15px 0;
+		padding: 0;
 	}
 	img{
 		display: block;
-		float: left;
+		position: absolute;
+		top: -3px;
+		max-width: 140px;
+		height: auto;
+		@media (min-width: 940px) {
+			max-width: 170px; 
+		}
 	}
 	span{
 		display: block;
@@ -19,6 +30,13 @@ header{
 	}
 	.mystays-logo{
 		margin-top: 8px; 
+	}
+}
+
+.questions, .results-wrap, .thank-you {
+	padding-top: 40px;
+	@media (min-width: 767px) {
+		padding-top: 30px;
 	}
 }
 
@@ -152,6 +170,18 @@ header{
 	}
 }
 
+.softbank-trademark{
+	position: absolute;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #090204;
+	    white-space: nowrap;
+}
+
 
 .question{
 	.options-wrap{
@@ -164,26 +194,51 @@ header{
 			justify-content: evenly;		
 		}
 	}
+	.img-wrap{
+		position: relative;
+		display: inline-block;
+	}
 	&.question1{
 		.options-wrap{
 			margin-top: 20px; 
 			@media (min-width: 767px) {
 				margin-top: -50px;
 			}
-			.option1 img{
-				width: 122px;
-				height: auto;
-				@media (min-width: 767px) {
-					width: auto;
+			.option1 {
+				position: relative;
+				img{
+					width: 122px;
+					height: auto;
+					@media (min-width: 767px) {
+						width: auto;
+					}
+				}
+				.softbank-trademark{
+					bottom: -10px;
+					left: 18px;
+					@media (min-width: 767px) {
+						bottom: 0;
+						left: 70px;
+					}
 				}
 			}
-			.option2 img{
-				width: 125px;
-				height: auto;
-				@media (min-width: 767px) {
-					width: auto;
+			.option2{
+				img{
+					width: 125px;
+					height: auto;
+					@media (min-width: 767px) {
+						width: auto;
+					}					   
 				}
-			}
+				.softbank-trademark{
+					bottom: -10px;
+					left: 15px; 
+					@media (min-width: 767px) {
+						bottom: 0;
+						left: 47px; 
+					}
+				} 
+			} 
 		}
 	} 
 	&.question2{
@@ -219,6 +274,14 @@ header{
 				margin: 10px auto 0;
 			}
 		}
+		.softbank-trademark{
+			bottom: 1px;
+			left: 100%; 
+			@media (min-width: 767px) {
+				 bottom: 30px;
+				// left: 47px; 
+			}
+		}
 	}
 	&.question3{
 		.options-wrap{
@@ -238,6 +301,14 @@ header{
 			height: auto;
 			@media (min-width: 767px) {
 				width: auto;
+			}
+		}
+		.softbank-trademark{
+			bottom: 1px;
+			left: 110%; 
+			@media (min-width: 767px) {
+				 bottom: 40px; 
+				// left: 47px; 
 			}
 		}
 	}
